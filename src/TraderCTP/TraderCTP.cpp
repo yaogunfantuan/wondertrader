@@ -133,6 +133,8 @@ bool TraderCTP::init(WTSVariant* params)
 #	else
 	const char* creatorName = "?CreateFtdcTraderApi@CThostFtdcTraderApi@@SAPAV1@PBD@Z";
 #	endif
+#elif defined(__APPLE__)
+    const char* creatorName = "_ZN19CThostFtdcTraderApi19CreateFtdcTraderApiEPKc";
 #else
 	const char* creatorName = "_ZN19CThostFtdcTraderApi19CreateFtdcTraderApiEPKc";
 #endif

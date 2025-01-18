@@ -72,6 +72,10 @@ public:
 		std::string ret = name;
 		ret += ".dll";
 		return std::move(ret);
+#elif defined(__APPLE__)
+        std::string ret = name;
+        ret += ".dylib";
+        return std::move(ret);
 #else
 		std::size_t idx = 0;
 		while (!isalpha(name[idx]))

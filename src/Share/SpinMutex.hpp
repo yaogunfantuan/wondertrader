@@ -23,7 +23,11 @@ public:
 #ifdef _MSC_VER
 				_mm_pause();
 #else
+#if defined(__APPLE__) || defined(__MACH__)
+                __asm__ __volatile__("yield" : : : "memory");
+#else
 				__builtin_ia32_pause();
+#endif
 #endif
 			}
 		}

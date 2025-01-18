@@ -100,6 +100,8 @@ int run(const char* cfgfile, bool bAsync = false, bool isFile = true)
 		{
 #ifdef _WIN32
 			MODULE_NAME = "./thosttraderapi_se.dll";
+#elif defined(__APPLE__)
+            MODULE_NAME = "./thosttraderapi_se.dylib";
 #else
 			MODULE_NAME = "./thosttraderapi_se.so";
 #endif
@@ -131,6 +133,8 @@ int run(const char* cfgfile, bool bAsync = false, bool isFile = true)
 
 #ifdef _WIN32
 		MODULE_NAME = ini.readString("ctp", "module", "./thosttraderapi_se.dll");
+#elif defined(__APPLE__)
+        MODULE_NAME = ini.readString("ctp", "module", "./thosttraderapi_se.dylib");;
 #else
 		MODULE_NAME = ini.readString("ctp", "module", "./thosttraderapi_se.so");
 #endif
@@ -169,6 +173,8 @@ int run(const char* cfgfile, bool bAsync = false, bool isFile = true)
 		{
 #ifdef _WIN32
 			MODULE_NAME = "./thosttraderapi_se.dll";
+#elif defined(__APPLE__)
+			MODULE_NAME = "./thosttraderapi_se.dylib";
 #else
 			MODULE_NAME = "./thosttraderapi_se.so";
 #endif
@@ -239,6 +245,8 @@ int run(const char* cfgfile, bool bAsync = false, bool isFile = true)
 #	else
 	g_ctpCreator = (CTPCreator)DLLHelper::get_symbol(dllInst, "?CreateFtdcTraderApi@CThostFtdcTraderApi@@SAPAV1@PBD@Z");
 #	endif
+#elif defined(__APPLE__)
+    g_ctpCreator = (CTPCreator)DLLHelper::get_symbol(dllInst, "_ZN19CThostFtdcTraderApi19CreateFtdcTraderApiEPKc");
 #else
 	g_ctpCreator = (CTPCreator)DLLHelper::get_symbol(dllInst, "_ZN19CThostFtdcTraderApi19CreateFtdcTraderApiEPKc");
 #endif

@@ -132,6 +132,8 @@ bool ParserCTP::init(WTSVariant* config)
 #	else
 	const char* creatorName = "?CreateFtdcMdApi@CThostFtdcMdApi@@SAPAV1@PBD_N1@Z";
 #	endif
+#elif defined(__APPLE__)
+    const char* creatorName = "_ZN15CThostFtdcMdApi15CreateFtdcMdApiEPKcbb";
 #else
 	const char* creatorName = "_ZN15CThostFtdcMdApi15CreateFtdcMdApiEPKcbb";
 #endif

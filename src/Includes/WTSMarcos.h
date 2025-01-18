@@ -57,6 +57,8 @@
 #ifndef EXPORT_FLAG
 #ifdef _MSC_VER
 #	define EXPORT_FLAG __declspec(dllexport)
+#elif defined(__APPLE__)
+#   define EXPORT_FLAG __attribute__((visibility("default")))
 #else
 #	define EXPORT_FLAG __attribute__((__visibility__("default")))
 #endif

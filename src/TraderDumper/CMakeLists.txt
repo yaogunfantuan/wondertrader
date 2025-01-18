@@ -35,6 +35,8 @@ ELSE(GNUCC)
 		LIST(APPEND LIBS
 			ws2_32 iconv
 		)
+	elseif (APPLE)
+		LIST(APPEND LIBS iconv)
 	ENDIF()
 ENDIF()
 

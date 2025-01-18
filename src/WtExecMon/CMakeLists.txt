@@ -31,7 +31,7 @@ ELSE (GNUCC)
 		pthread
 		boost_filesystem
 		boost_thread)
-	if(WIN32)
+	if(WIN32 OR APPLE)
 		LIST(APPEND LIBS iconv)
 	ENDIF()
 ENDIF()
